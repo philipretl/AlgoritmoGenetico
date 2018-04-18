@@ -21,7 +21,7 @@ public class AlgoritmoGenetico {
     public static void main(String[] args) {
         // TODO code application logic here
         Funcion ensayo= new Funcion1();
-        System.out.println("me la pela git jajaja");
+        System.out.println("me la pela git jajaja :/ ");
         System.out.println("Prueba de Funcion para calcular un fenotipo");
         System.out.println("valor: " + ensayo.calcularResultado(31.5005));
         
