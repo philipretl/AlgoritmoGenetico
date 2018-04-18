@@ -21,12 +21,12 @@ public class AlgoritmoGenetico {
     public static void main(String[] args) {
         // TODO code application logic here
         Funcion ensayo= new Funcion1();
-        System.out.println("me la pela git jajaja :/ ");
-        System.out.println("Prueba de Funcion para calcular un fenotipo");
         System.out.println("valor: " + ensayo.calcularResultado(31.5005));
         
         Cromosoma cromos;
-        cromos= new Cromosoma(crearGenotipo(32),1, 8, 23);
+        //cromos= new Cromosoma(crearGenotipo(32),1, 8, 23);
+        cromos= new Cromosoma(crearGenotipo(13),1, 8, 4);
+        
         cromos.calcularFenotipo();
         
     }
@@ -40,6 +40,7 @@ public class AlgoritmoGenetico {
                 genotipo.add(0);
             }else{
                 genotipo.add((int) (Math.random() * 2));
+                System.out.print(" * " + genotipo.get(i) );
             }
         }
         return genotipo;
