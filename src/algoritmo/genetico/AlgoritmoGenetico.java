@@ -39,7 +39,7 @@ public class AlgoritmoGenetico {
         poblacion.add(c2);
         poblacion.add(c3);
         
-        Sorteo sort = new Sorteo(poblacion);
+        Sorteo sort = new Sorteo(poblacion,null);
         
         sort.seleccionarPadre();
         sort.seleccionarMadre();

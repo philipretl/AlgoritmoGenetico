@@ -6,6 +6,7 @@
 package seleccion;
 
 import algoritmo.genetico.Cromosoma;
+import funciones.Funcion;
 import java.util.ArrayList;
 
 /**
@@ -14,13 +15,14 @@ import java.util.ArrayList;
  */
 public class Sorteo extends OperadorSeleccion{
 
-    public Sorteo() {
-        super();
-    }
 
-    public Sorteo(ArrayList<Cromosoma> poblacion) {
-        super(poblacion);
+    public Sorteo(ArrayList<Cromosoma> poblacion, Funcion funcion) {
+        super(poblacion, funcion);
     }
+    
+        
+
+
     
     
 

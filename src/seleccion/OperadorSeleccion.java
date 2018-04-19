@@ -6,6 +6,7 @@
 package seleccion;
 
 import algoritmo.genetico.Cromosoma;
+import funciones.Funcion;
 import java.util.ArrayList;
 
 /**
@@ -17,14 +18,12 @@ public abstract class OperadorSeleccion {
     ArrayList<Cromosoma> poblacion;
     Cromosoma padre;
     Cromosoma madre;
+    Funcion func;
 
-    public OperadorSeleccion() {
-        poblacion=new ArrayList();
-    }
-
-    public OperadorSeleccion(ArrayList<Cromosoma> poblacion) {
+    public OperadorSeleccion(ArrayList<Cromosoma> poblacion, Funcion funcion) {
         this.poblacion = poblacion;
-
+        this.func=funcion;
+        
     }
 
     public ArrayList<Cromosoma> getPoblacion() {
@@ -49,6 +48,14 @@ public abstract class OperadorSeleccion {
 
     public void setMadre(Cromosoma madre) {
         this.madre = madre;
+    }
+
+    public Funcion getFunc() {
+        return func;
+    }
+
+    public void setFunc(Funcion func) {
+        this.func = func;
     }
     
     public abstract void seleccionarPadre();
