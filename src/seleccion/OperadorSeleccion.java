@@ -8,7 +8,7 @@ package seleccion;
 import algoritmo.genetico.Cromosoma;
 import funciones.Funcion;
 import java.util.ArrayList;
-import seleccion.poblacion.Padres;
+import poblacion.Padres;
 
 /**
  *
