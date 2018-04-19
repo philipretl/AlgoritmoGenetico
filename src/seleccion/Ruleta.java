@@ -8,6 +8,7 @@ package seleccion;
 import algoritmo.genetico.Cromosoma;
 import funciones.Funcion;
 import java.util.ArrayList;
+import seleccion.poblacion.Padres;
 
 /**
  *
@@ -38,14 +39,22 @@ public class Ruleta extends OperadorSeleccion{
 
     @Override
     public void seleccionarPadre() {
-        int n;
-        n=(int) (Math.random() * (1-0+0.1)+1) ;
+        double n;
+        n= (Math.random() * 100) / 100 ;
         System.out.println("n: " + n );
-    
+        
+        for (int i = 0; i < 10; i++) {
+            
+        }
     }
 
     @Override
     public void seleccionarMadre() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Padres GenerarPadres() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
              

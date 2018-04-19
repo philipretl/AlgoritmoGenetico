@@ -8,6 +8,7 @@ package seleccion;
 import algoritmo.genetico.Cromosoma;
 import funciones.Funcion;
 import java.util.ArrayList;
+import seleccion.poblacion.Padres;
 
 /**
  *
@@ -20,12 +21,8 @@ public class Sorteo extends OperadorSeleccion{
         super(poblacion, funcion);
     }
     
-        
-
-
+  
     
-    
-
     @Override
     public void seleccionarPadre() {
         System.out.println(" Metodo : Seleccion Padre");
@@ -56,6 +53,11 @@ public class Sorteo extends OperadorSeleccion{
         }while(tmp.equals(padre));
         System.out.println("");
         setMadre(tmp);
+    }
+
+    @Override
+    public Padres GenerarPadres() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
