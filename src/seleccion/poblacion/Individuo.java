@@ -10,5 +10,5 @@ package seleccion.poblacion;
  * @author philipretl
  */
 public class Individuo {
-    
+    //me la pela
 }

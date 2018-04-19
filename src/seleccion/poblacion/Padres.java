@@ -14,4 +14,5 @@ import algoritmo.genetico.Cromosoma;
 public class Padres {
     Cromosoma padre;
     Cromosoma madre;
+    //mela pela
 }
