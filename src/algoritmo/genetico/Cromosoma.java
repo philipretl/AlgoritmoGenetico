@@ -59,7 +59,7 @@ public class Cromosoma {
             
             vectorEntero[cont]=genotipo.get(i);
             
-            System.out.print(" - " + vectorEntero[cont]);
+            System.out.print(" e " + vectorEntero[cont]);
             cont ++;
         }
         
@@ -70,7 +70,7 @@ public class Cromosoma {
             
             vectorDecimal[cont]=genotipo.get(i);
            
-            System.out.print(" - " + vectorDecimal[cont]);
+            System.out.print(" d " + vectorDecimal[cont]);
             cont ++;
         }
         /*
@@ -90,18 +90,15 @@ public class Cromosoma {
             
         
         System.out.println("parte decimal " + parteDecimal );
-        
+
         //double total = parteEntera+parteDecimal;
-        
         System.out.println("parte entera"+ parteEntera);
-        String cadenaEntera = String.valueOf((int) parteEntera);
-        System.out.println("cadena entera: " + cadenaEntera);
-        String cadenaDecimal = String.valueOf(parteDecimal*10);
-        System.out.println("cadena decimal: " + cadenaDecimal);
-        String cadenaTotal = cadenaEntera + cadenaDecimal;
-        
-        
-        
+        String cadenaEntera = String.valueOf((int)parteEntera);
+        System.out.println("cadena entera: " + cadenaEntera); 
+        String cadenaDecimal = String.valueOf((int)parteDecimal); 
+        System.out.println("cadena decimal: " + cadenaDecimal); 
+        String cadenaTotal = cadenaEntera + "." + cadenaDecimal;
+        System.out.println("cadena: "  + cadenaTotal);
         //String cadenaTotal = String.valueOf(total);
         
        

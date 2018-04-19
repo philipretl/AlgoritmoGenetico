@@ -62,7 +62,6 @@ public class AlgoritmoGenetico {
                 genotipo.add(0);
             }else{
                 genotipo.add((int) (Math.random() * 2));
-                System.out.print(" * " + genotipo.get(i) );
             }
         }
         return genotipo;
