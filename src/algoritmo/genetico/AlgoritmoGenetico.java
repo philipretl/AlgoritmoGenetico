@@ -23,18 +23,13 @@ public class AlgoritmoGenetico {
         // TODO code application logic here
         Funcion ensayo= new Funcion1();
         System.out.println("valor: " + ensayo.calcularResultado(31.5005));
-<<<<<<< HEAD
-        
-        Cromosoma cromos;
-        //cromos= new Cromosoma(crearGenotipo(32),1, 8, 23);
-        cromos= new Cromosoma(crearGenotipo(13),1, 8, 4);
-        
-=======
+
+       
         //Prueba de sorteo, se crea un array de cromosomas :"poblacion"
         ArrayList<Cromosoma> poblacion= new ArrayList<>(); 
         Cromosoma cromos,c2,c3;
         cromos= new Cromosoma(crearGenotipo(32),1, 8, 23);
->>>>>>> d0e5192e28d4cba499d531b8b4502d653f9d0a22
+
         cromos.calcularFenotipo();
         c2=new Cromosoma(crearGenotipo(32),1, 8, 23);
         c2.calcularFenotipo();
