@@ -82,19 +82,29 @@ public class Cromosoma {
             cont ++;
         }*/
         
-        parteEntera=convertBinaryToDecimal(vectorEntero,vectorEntero.length-1);
+        parteDecimal=convertBinaryToDecimalInv(vectorDecimal,vectorDecimal.length-1); 
         decimalValue=0;
-        //pot=0;
-        parteDecimal=convertBinaryToDecimalInv(vectorDecimal,vectorDecimal.length-1);      
+        parteEntera=convertBinaryToDecimal(vectorEntero,vectorEntero.length-1);
         
+        //pot=0;
+            
+        
+        System.out.println("parte decimal " + parteDecimal );
+        
+        //double total = parteEntera+parteDecimal;
         
         System.out.println("parte entera"+ parteEntera);
-        String cadenaEntera = String.valueOf(parteEntera);
+        String cadenaEntera = String.valueOf((int) parteEntera);
         System.out.println("cadena entera: " + cadenaEntera);
-        String cadenaDecimal = String.valueOf(parteDecimal);
+        String cadenaDecimal = String.valueOf(parteDecimal*10);
         System.out.println("cadena decimal: " + cadenaDecimal);
         String cadenaTotal = cadenaEntera + cadenaDecimal;
         
+        
+        
+        //String cadenaTotal = String.valueOf(total);
+        
+       
         fenotipo= Double.parseDouble(cadenaTotal);
         
         System.out.println("fenotipo: " + fenotipo);
@@ -133,10 +143,10 @@ public class Cromosoma {
        //devuelve el valor del binario en Decimal
        return decimalValue;
     }
-
+    
     public double convertBinaryToDecimalInv( int[] binaryValue, int index ) {
        //comprueba que el indice no sea menor que 0
-       System.out.print(" index: " + index);
+       System.out.print("index: " + index);
 
 
        if(index >= 0) {
@@ -152,16 +162,7 @@ public class Cromosoma {
            // 
            // Nota que se le resta 1 al numero de elementos del arreglo ya que un array comienza desde la posicion 0
            //
-           //decimalValue = (int) (decimalValue + (Math.pow(2,( (binaryValue.length-1) - index ))));
-       
-           pot=( (binaryValue.length) - index );
-           //pot=(pot*-1);
-           System.out.println("potencia: " + pot);
-           
-           decimalValue = (double) (decimalValue + (Math.pow(2,-1*pot)));
-           
-           System.out.println("- "+ (Math.pow(2, pot)) );
-           
+           decimalValue = (double) (decimalValue + (Math.pow(2, ( (binaryValue.length-1) - index )*-1)));
            //Recursividad restandole 1 al indice para trabajar con el indice anterior
            convertBinaryToDecimal(binaryValue, index-1);
          }
@@ -174,5 +175,6 @@ public class Cromosoma {
        //devuelve el valor del binario en Decimal
        return decimalValue;
     }
+    
  
 }

@@ -8,6 +8,7 @@ package algoritmo.genetico;
 import funciones.Funcion1;
 import funciones.Funcion;
 import java.util.ArrayList;
+import seleccion.Sorteo;
 
 /**
  *
@@ -22,12 +23,33 @@ public class AlgoritmoGenetico {
         // TODO code application logic here
         Funcion ensayo= new Funcion1();
         System.out.println("valor: " + ensayo.calcularResultado(31.5005));
-        
-        Cromosoma cromos;
-        //cromos= new Cromosoma(crearGenotipo(32),1, 8, 23);
-        cromos= new Cromosoma(crearGenotipo(13),1, 8, 4);
-        
+
+       
+        //Prueba de sorteo, se crea un array de cromosomas :"poblacion"
+        ArrayList<Cromosoma> poblacion= new ArrayList<>(); 
+        Cromosoma cromos,c2,c3;
+        cromos= new Cromosoma(crearGenotipo(32),1, 8, 23);
+
         cromos.calcularFenotipo();
+        c2=new Cromosoma(crearGenotipo(32),1, 8, 23);
+        c2.calcularFenotipo();
+        c3=new Cromosoma(crearGenotipo(32),1, 8, 23);
+        c3.calcularFenotipo();
+        poblacion.add(cromos);
+        poblacion.add(c2);
+        poblacion.add(c3);
+        
+        Sorteo sort = new Sorteo(poblacion);
+        
+        sort.seleccionarPadre();
+        sort.seleccionarMadre();
+        
+        Cromosoma padre = sort.getPadre();
+        Cromosoma madre = sort.getMadre();
+        
+        System.out.println("Padre: "+padre.fenotipo);
+        System.out.println("Madre: "+madre.fenotipo);
+ 
         
     }
     
