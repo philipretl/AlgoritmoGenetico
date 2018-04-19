@@ -12,10 +12,47 @@ import java.util.ArrayList;
  *
  * @author philipretl
  */
-public class OperadorSeleccion {
+public abstract class OperadorSeleccion {
     
-    ArrayList<Cromosoma> lista = new ArrayList();
+    ArrayList<Cromosoma> poblacion;
+    Cromosoma padre;
+    Cromosoma madre;
+
+    public OperadorSeleccion() {
+        poblacion=new ArrayList();
+    }
+
+    public OperadorSeleccion(ArrayList<Cromosoma> poblacion) {
+        this.poblacion = poblacion;
+
+    }
+
+    public ArrayList<Cromosoma> getPoblacion() {
+        return poblacion;
+    }
+
+    public void setPoblacion(ArrayList<Cromosoma> poblacion) {
+        this.poblacion = poblacion;
+    }
+
+    public Cromosoma getPadre() {
+        return padre;
+    }
+
+    public void setPadre(Cromosoma padre) {
+        this.padre = padre;
+    }
+
+    public Cromosoma getMadre() {
+        return madre;
+    }
+
+    public void setMadre(Cromosoma madre) {
+        this.madre = madre;
+    }
     
+    public abstract void seleccionarPadre();
     
+    public abstract void seleccionarMadre();
     
 }
