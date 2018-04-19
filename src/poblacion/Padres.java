@@ -5,8 +5,6 @@
  */
 package poblacion;
 
-import algoritmo.genetico.Cromosoma;
-
 /**
  *
  * @author philipretl

@@ -5,7 +5,7 @@
  */
 package seleccion;
 
-import algoritmo.genetico.Cromosoma;
+import poblacion.Cromosoma;
 import funciones.Funcion;
 import java.util.ArrayList;
 import poblacion.Padres;

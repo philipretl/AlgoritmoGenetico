@@ -5,6 +5,7 @@
  */
 package algoritmo.genetico;
 
+import poblacion.Cromosoma;
 import funciones.Funcion1;
 import funciones.Funcion;
 import java.util.ArrayList;
