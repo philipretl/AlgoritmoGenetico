@@ -87,14 +87,22 @@ public class Cromosoma {
         //pot=0;
         parteDecimal=convertBinaryToDecimalInv(vectorDecimal,vectorDecimal.length-1);      
         
+        System.out.println("parte decimal " + parteDecimal );
         
-        System.out.println("parte entera"+ parteEntera);
-        String cadenaEntera = String.valueOf(parteEntera);
+        double total = parteEntera+parteDecimal;
+        
+       /* System.out.println("parte entera"+ parteEntera);
+        String cadenaEntera = String.valueOf( (int) parteEntera);
         System.out.println("cadena entera: " + cadenaEntera);
         String cadenaDecimal = String.valueOf(parteDecimal);
         System.out.println("cadena decimal: " + cadenaDecimal);
         String cadenaTotal = cadenaEntera + cadenaDecimal;
         
+        */
+        
+        String cadenaTotal = String.valueOf(total);
+        
+       
         fenotipo= Double.parseDouble(cadenaTotal);
         
         System.out.println("fenotipo: " + fenotipo);
@@ -134,45 +142,6 @@ public class Cromosoma {
        return decimalValue;
     }
 
-    public double convertBinaryToDecimalInv( int[] binaryValue, int index ) {
-       //comprueba que el indice no sea menor que 0
-       System.out.print(" index: " + index);
-
-
-       if(index >= 0) {
-         //comprueba que el valor del binario sea 1 en la posicion del indice
-         if(binaryValue[index] == 1) {
-           // suma el valor del binario correspondiente al indice y lo guarda en decimalValue
-           // ten en cuenta que el valor de un digito binario depende de la posicion en la que este en el arreglo
-           // 
-           // Ejemplo
-           // 
-           // indice del arreglo        0           2          3           4           5           6            7
-           // valor del binario        2^6         2^5        2^4         2^3         2^2         2^1          2^0
-           // 
-           // Nota que se le resta 1 al numero de elementos del arreglo ya que un array comienza desde la posicion 0
-           //
-           //decimalValue = (int) (decimalValue + (Math.pow(2,( (binaryValue.length-1) - index ))));
-       
-           pot=( (binaryValue.length) - index );
-           //pot=(pot*-1);
-           System.out.println("potencia: " + pot);
-           
-           decimalValue = (double) (decimalValue + (Math.pow(2,-1*pot)));
-           
-           System.out.println("- "+ (Math.pow(2, pot)) );
-           
-           //Recursividad restandole 1 al indice para trabajar con el indice anterior
-           convertBinaryToDecimal(binaryValue, index-1);
-         }
-         //en caso de que el valor del binario sea 0 en la posicion del indice no hace falta hacer ninguna operacion
-         else{
-         //Recursividad restandole 1 al indice para trabajar con el indice anterior
-           convertBinaryToDecimal(binaryValue, index-1);
-         }
-       }
-       //devuelve el valor del binario en Decimal
-       return decimalValue;
-    }
+    
  
 }
