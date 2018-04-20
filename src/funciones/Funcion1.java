@@ -21,7 +21,7 @@ public class Funcion1 extends Funcion{
         pi=3.14159265358979323846;
     }
 
-    @Override
+    //@Override
     public double calcularResultado(double fenotipo) {
         
         resultado=0;
