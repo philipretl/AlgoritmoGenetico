@@ -16,8 +16,8 @@ public abstract class  Funcion {
     public Funcion() {
     }
     
-    abstract public double calcularResultado(double fenotipo);
-
+    //abstract public double calcularResultado(double fenotipo);
+    
     public double getFenotipo() {
         return fenotipo;
     }
