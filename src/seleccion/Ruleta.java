@@ -62,8 +62,8 @@ public class Ruleta extends OperadorSeleccion{
             for (int i = 0; i < rangos.size(); i++) {
                 do{// se me estaba desbordando el aleatorio.
                     n=0.0;
-                    //n= (Math.random() * 100) / 100 ;
-                     n=0.1 + ( 1 - 0.1) * rand.nextDouble();
+                    n= (Math.random() * 100) / 100 ;
+                    //n=0.1 + ( 1 - 0) * rand.nextDouble();
                 }while(n > rangos.get(rangos.size()-1));
                 
                 /*n=0.0;
