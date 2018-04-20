@@ -23,6 +23,7 @@ public class Ruleta extends OperadorSeleccion{
         super(poblacion, funcion);
         rangos = new ArrayList();
         padres=new ArrayList();
+        calcularSumatoria();
         calcularRangos();
     }
     
@@ -32,9 +33,9 @@ public class Ruleta extends OperadorSeleccion{
         for (int i = 0; i <poblacion.size(); i++) {
             
             if(i==0){
-                rangos.add(func.calcularResultado(poblacion.get(i).getFenotipo()));
+                rangos.add(func.calcularResultado(poblacion.get(i).getFenotipo())/sumatoria);
             }else{
-                rangos.add(func.calcularResultado(poblacion.get(i).getFenotipo())+func.calcularResultado(poblacion.get(i-1).getFenotipo()));
+                rangos.add(func.calcularResultado(poblacion.get(i).getFenotipo())/sumatoria +func.calcularResultado(poblacion.get(i-1).getFenotipo())/sumatoria);
             }
         }    
     }
@@ -48,12 +49,23 @@ public class Ruleta extends OperadorSeleccion{
         do{
             //variable entera para seleccionar aleatoreamente un cromosma de la poblacion
             Padres tmp = new Padres(cont);
-            tmp.setPadre(buscar());
+            //Cromosoma padre = new Cromosoma(buscar().getGenotipo(),buscar().getInfo(),buscar().getEntero(),buscar().getDecimal()); 
+            //Cromosoma temp=buscar();
+            Cromosoma padre ;//= new Cromosoma();
+            //padre = new Cromosoma(temp.getGenotipo(),temp.getInfo(),temp.getEntero(),temp.getDecimal()); 
+            padre=buscar();
+            tmp.setPadre(padre);
            
             boolean flag=false;// bandera para encontrar la madre
             do{
-                if(buscar()!=tmp.getPadre()){
-                    tmp.setMadre(buscar());
+               // Cromosoma madre = new Cromosoma(buscar().getGenotipo(),buscar().getInfo(),buscar().getEntero(),buscar().getDecimal()); 
+               Cromosoma madre ;//= new Cromosoma();
+               //Cromosoma tempM=buscar();
+               //madre = new Cromosoma(tempM.getGenotipo(),tempM.getInfo(),tempM.getEntero(),tempM.getDecimal()); 
+               madre=buscar();
+               tmp.setMadre(madre);
+                if(tmp.getMadre().getFenotipo()!=tmp.getPadre().getFenotipo()){
+                    //tmp.setMadre(madre);
                     flag=true;
                 }
             }while(flag!=true);
@@ -74,16 +86,25 @@ public class Ruleta extends OperadorSeleccion{
         n= (Math.random() * 100) / 100 ;
         
         for (int i = 0; i < rangos.size(); i++) {
-                if(n<=rangos.get(i)){
-                    System.out.println("poblacion: " + poblacion.get(i).getFenotipo() +"rango: " + rangos.get(i));
-                    
-                    //cromo=new Cromosoma(poblacion.get(i).getGenotipo(),poblacion.get(i).getInfo(),poblacion.get(i).getEntero(),poblacion.get(i).getDecimal());;
-                    cromo=poblacion.get(i);
-                }
+                
+            if(n<=rangos.get(i)){
+               // System.out.println("poblacion: " + poblacion.get(i).getFenotipo() +"rango: " + rangos.get(i));
+
+                //cromo=new Cromosoma(poblacion.get(i).getGenotipo(),poblacion.get(i).getInfo(),poblacion.get(i).getEntero(),poblacion.get(i).getDecimal());;
+                cromo=poblacion.get(i);
+                break;
+            }
                     
         }
                     
         return cromo;
+    }
+
+    @Override
+    public void calcularSumatoria() {
+        for (int i = 0; i < poblacion.size(); i++) {
+            sumatoria=sumatoria + (func.calcularResultado(poblacion.get(i).getFenotipo()));
+        }
     }
     
 

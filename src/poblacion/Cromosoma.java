@@ -26,11 +26,12 @@ public class Cromosoma {
         this.decimal=decimal;
         this.pot=0;
         this.decimalValue=0;
+        this.calcularFenotipo();
     }
 
-    public Cromosoma() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   /* public Cromosoma() {
+       this.calcularFenotipo();
+    }*/
 
     public ArrayList<Integer> getGenotipo() {
         return genotipo;
@@ -71,10 +72,6 @@ public class Cromosoma {
     public void setDecimal(int decimal) {
         this.decimal = decimal;
     }
-    
-    
-
-
     
     public double calcularFenotipo(){
         

@@ -56,5 +56,10 @@ public class Sorteo extends OperadorSeleccion{
         return padres;
         
     }
+
+    @Override
+    public void calcularSumatoria() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

@@ -19,10 +19,12 @@ public abstract class OperadorSeleccion {
     ArrayList<Cromosoma> poblacion;
     ArrayList<Padres> padres;
     Funcion func;
+    double sumatoria;
 
     public OperadorSeleccion(ArrayList<Cromosoma> poblacion, Funcion funcion){
         this.poblacion = poblacion;
         this.func=funcion;
+        int sumatoria=0;
         
     }
 
@@ -43,4 +45,5 @@ public abstract class OperadorSeleccion {
     }
     
     public abstract ArrayList<Padres> GenerarPadres(int numPadres);
+    public abstract void calcularSumatoria();
 }
