@@ -87,7 +87,7 @@ public class CruceDosPuntos {
         do{
             corte1 = (int) (Math.random() * (size-1))+1;
             corte2 = (int) (Math.random() * (size-1))+1;
-        }while(corte2>corte1 && corte2-corte1<1);
+        }while(corte1>corte2 && corte2-corte1<1);
         
         puntoCorte1=corte1;
         puntoCorte2=corte2;
