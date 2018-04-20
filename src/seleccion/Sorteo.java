@@ -45,10 +45,32 @@ public class Sorteo extends OperadorSeleccion{
                    flag=true;
                }
             }while(flag!=true);
-            
+            /*codigo viejo para no repeticiones
             padres.add(tmp);// luego de encontrar el padre y la madre se agregar a la lista
         
             cont++;
+            */
+            //codigo nuevo no repeticiones 03.21 am
+            int num;
+            if(cont==0){
+                padres.add(tmp);
+                cont ++;
+                
+            }else{
+                num=0;
+                for (int k = 0; k < padres.size(); k++) {
+                    
+                    if(padres.get(k).getPadre().getFenotipo() == tmp.getPadre().getFenotipo() && padres.get(k).getMadre().getFenotipo() == tmp.getMadre().getFenotipo()){
+                        num++;
+                    }
+                    
+                }
+                if(num==0){
+                    padres.add(tmp);// luego de encontrar el padre y la madre se agregar a la lista
+                    cont++;
+                }
+            }     
+            
             
         }while(cont < numPadres);
 

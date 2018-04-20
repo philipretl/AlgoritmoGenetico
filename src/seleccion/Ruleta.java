@@ -118,17 +118,34 @@ public class Ruleta extends OperadorSeleccion{
                     }
                 }
                 
-                if(padresTemp.getMadre().getFenotipo()!=padresTemp.getPadre().getFenotipo()){
-                    flag=true;
+                if(padresTemp.getMadre().getFenotipo()!=padresTemp.getPadre().getFenotipo()){// evalua que el padre y la madre no sean el mimso
+                        flag=true;
+                
+                }
+                  
+            } while (!flag);
+            int num;
+        //------------------------------    
+            if(cont==0){
+                padres.add(padresTemp);
+                cont ++;
+                
+            }else{
+                num=0;
+                for (int k = 0; k < padres.size(); k++) {
+                    
+                    if(padres.get(k).getPadre().getFenotipo() == padresTemp.getPadre().getFenotipo() && padres.get(k).getMadre().getFenotipo() == padresTemp.getMadre().getFenotipo()){
+                        num++;
+                    }
                     
                 }
-                    
-            } while (!flag);
+                if(num==0){
+                    padres.add(padresTemp);// luego de encontrar el padre y la madre se agregar a la lista
+                    cont++;
+                }
+            }     
             
-        //------------------------------    
-            padres.add(padresTemp);// luego de encontrar el padre y la madre se agregar a la lista
-        
-            cont++;
+            
             
         }while(cont < numPadres);
      
