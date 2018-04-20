@@ -8,6 +8,7 @@ package seleccion;
 import poblacion.Cromosoma;
 import funciones.Funcion;
 import java.util.ArrayList;
+import java.util.Random;
 import poblacion.Padres;
 
 /**
@@ -34,8 +35,10 @@ public class Ruleta extends OperadorSeleccion{
             
             if(i==0){
                 rangos.add(func.calcularResultado(poblacion.get(i).getFenotipo())/sumatoria);
+                System.out.println("rangos:" + rangos.get(i));
             }else{
                 rangos.add(func.calcularResultado(poblacion.get(i).getFenotipo())/sumatoria +func.calcularResultado(poblacion.get(i-1).getFenotipo())/sumatoria);
+                System.out.println("rangos:" + rangos.get(i));
             }
         }    
     }
@@ -45,47 +48,32 @@ public class Ruleta extends OperadorSeleccion{
     
         
         int cont=0;
+        double n,m;
+        Random rand = new Random();
        
         do{
-            /*//variable entera para seleccionar aleatoreamente un cromosma de la poblacion
-            Padres tmp = new Padres(cont);
-            //Cromosoma padre = new Cromosoma(buscar().getGenotipo(),buscar().getInfo(),buscar().getEntero(),buscar().getDecimal()); 
-            Cromosoma temp=buscar();
-            Cromosoma padre ;//= new Cromosoma();
-            padre = new Cromosoma(temp.getGenotipo(),temp.getInfo(),temp.getEntero(),temp.getDecimal()); 
-            //padre=buscar();
-            tmp.setPadre(padre);
-           
-            boolean flag=false;// bandera para encontrar la madre
-            do{
-               // Cromosoma madre = new Cromosoma(buscar().getGenotipo(),buscar().getInfo(),buscar().getEntero(),buscar().getDecimal()); 
-               Cromosoma madre ;//= new Cromosoma();
-               Cromosoma tempM=buscar();
-               madre = new Cromosoma(tempM.getGenotipo(),tempM.getInfo(),tempM.getEntero(),tempM.getDecimal()); 
-               //madre=buscar();
-               tmp.setMadre(madre);
-                if(tmp.getMadre().getFenotipo()!=tmp.getPadre().getFenotipo()){
-                    //tmp.setMadre(madre);
-                    flag=true;
-                }
-            }while(flag!=true);
-            */
-            //camella a ratos descomentar buscar
-            
+          
             // new try------------------------
             
             Padres padresTemp = new Padres(cont);
             
             // genero un aleatorio miro el rango seleccion el papá
-            double n;
-           
-            
+             //n= (Math.random() * sumatoria/100) ;
             for (int i = 0; i < rangos.size(); i++) {
                 do{// se me estaba desbordando el aleatorio.
-                    n= (Math.random() * 100) / 100 ;
+                    n=0.0;
+                    //n= (Math.random() * 100) / 100 ;
+                     n=0.1 + ( 1 - 0.1) * rand.nextDouble();
                 }while(n > rangos.get(rangos.size()-1));
                 
+                /*n=0.0;
+                //n= (Math.random() * sumatoria/100) ;
+                n=0.1 + ( sumatoria/100 - 0.1) * rand.nextDouble();
+                */
+                //System.out.println("n: " + n );
+                //System.out.println("rango del for: "  + rangos.get(i));
                 if(n<=rangos.get(i)){
+                     
                     // System.out.println("poblacion: " + poblacion.get(i).getFenotipo() +"rango: " + rangos.get(i));
 
                     // cromo=new Cromosoma(poblacion.get(i).getGenotipo(),poblacion.get(i).getInfo(),poblacion.get(i).getEntero(),poblacion.get(i).getDecimal());;
@@ -96,25 +84,32 @@ public class Ruleta extends OperadorSeleccion{
             // genero un random, miro el rango seleccion a la mamá si es igual 
             //repite
             boolean flag=false;
-            double m;
+            //Double m;
             /*do{
                 m= (Math.random() * 100) / 100 ;
             }while(m > rangos.get(rangos.size()-1));
              */
             do {
-                
-                do{
+                //System.out.println("entre al do interno");
+                do{ 
+                    m=0.0;
                     m= (Math.random() * 100) / 100 ;
+                     //n=0.1 + ( 1 - 0.1) * rand.nextDouble();
                 }while(m > rangos.get(rangos.size()-1)); 
                 
+                /*m=0.0;
+                //m= (Math.random() * sumatoria/100) ;
+                m=0.1 + (sumatoria/100 - 0.1) * rand.nextDouble();
+                */
                 for (int j = 0; j < rangos.size(); j++) {
-                
+                   
                     if(m<=rangos.get(j)){
+                        
                // System.out.println("poblacion: " + poblacion.get(i).getFenotipo() +"rango: " + rangos.get(i));
 
                // cromo=new Cromosoma(poblacion.get(i).getGenotipo(),poblacion.get(i).getInfo(),poblacion.get(i).getEntero(),poblacion.get(i).getDecimal());;
-                    padresTemp.setMadre(poblacion.get(j));
-                    break;
+                        padresTemp.setMadre(poblacion.get(j));
+                        break;
                     }
                 }
                 
@@ -153,30 +148,13 @@ public class Ruleta extends OperadorSeleccion{
        return padres;
     
     }    
-   /* public Cromosoma buscar(){
-        Cromosoma cromo = null;
-        double n;
-        n= (Math.random() * 100) / 100 ;
-        
-        for (int i = 0; i < rangos.size(); i++) {
-                
-            if(n<=rangos.get(i)){
-               // System.out.println("poblacion: " + poblacion.get(i).getFenotipo() +"rango: " + rangos.get(i));
-
-                cromo=new Cromosoma(poblacion.get(i).getGenotipo(),poblacion.get(i).getInfo(),poblacion.get(i).getEntero(),poblacion.get(i).getDecimal());;
-                //cromo=poblacion.get(i);
-                break;
-            }
-                    
-        }
-                    
-        return cromo;
-    }*/
 
     @Override
     public void calcularSumatoria() {
         for (int i = 0; i < poblacion.size(); i++) {
+            System.out.println("funcion: " + (func.calcularResultado(poblacion.get(i).getFenotipo())));
             sumatoria=sumatoria + (func.calcularResultado(poblacion.get(i).getFenotipo()));
+            System.out.println("sumatoria: " + sumatoria);
         }
     }
     
