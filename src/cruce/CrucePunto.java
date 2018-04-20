@@ -49,6 +49,7 @@ public class CrucePunto {
         for (int i = 0; i < cabezaP.size(); i++) {
             genotipo1.add(cabezaP.get(i));
             genotipo2.add(cabezaM.get(i));
+        
         }
         
         for (int j = 0; j < colaP.size(); j++) {
