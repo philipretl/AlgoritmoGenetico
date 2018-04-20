@@ -78,11 +78,12 @@ public class Ruleta extends OperadorSeleccion{
             
             // genero un aleatorio miro el rango seleccion el papá
             double n;
-            do{// se me estaba desbordando el aleatorio.
-                n= (Math.random() * 100) / 100 ;
-            }while(n > rangos.get(rangos.size()-1));
+           
             
             for (int i = 0; i < rangos.size(); i++) {
+                do{// se me estaba desbordando el aleatorio.
+                    n= (Math.random() * 100) / 100 ;
+                }while(n > rangos.get(rangos.size()-1));
                 
                 if(n<=rangos.get(i)){
                     // System.out.println("poblacion: " + poblacion.get(i).getFenotipo() +"rango: " + rangos.get(i));
