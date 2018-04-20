@@ -30,15 +30,16 @@ public class Ruleta extends OperadorSeleccion{
     
     
     public void calcularRangos(){
-        
+        double primero,anterior;
         for (int i = 0; i <poblacion.size(); i++) {
             
             if(i==0){
                 rangos.add(func.calcularResultado(poblacion.get(i).getFenotipo())/sumatoria);
                 System.out.println("rangos:" + rangos.get(i));
             }else{
-                rangos.add(func.calcularResultado(poblacion.get(i).getFenotipo())/sumatoria +func.calcularResultado(poblacion.get(i-1).getFenotipo())/sumatoria);
-                System.out.println("rangos:" + rangos.get(i));
+                primero=func.calcularResultado(poblacion.get(i).getFenotipo())/sumatoria;
+                anterior=rangos.get(i-1);
+                rangos.add(primero+anterior);
             }
         }    
     }
