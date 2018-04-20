@@ -37,7 +37,7 @@ public class Ruleta extends OperadorSeleccion{
                 rangos.add(func.calcularResultado(poblacion.get(i).getFenotipo())/sumatoria);
                 System.out.println("rangos:" + rangos.get(i));
             }else{
-                primero=func.calcularResultado(poblacion.get(i).getFenotipo())/sumatoria;
+                primero=func.calcularResultado(poblacion.get(i).getFenotipo())/sumatoria;//soluciona el problema de bucle infinito
                 anterior=rangos.get(i-1);
                 rangos.add(primero+anterior);
             }
@@ -71,8 +71,8 @@ public class Ruleta extends OperadorSeleccion{
                 //n= (Math.random() * sumatoria/100) ;
                 n=0.1 + ( sumatoria/100 - 0.1) * rand.nextDouble();
                 */
-                System.out.println("n: " + n );//
-                System.out.println("rango del for: "  + rangos.get(i));
+                //System.out.println("n: " + n );//
+                //System.out.println("rango del for: "  + rangos.get(i));
                 if(n<=rangos.get(i)){
                      
                     // System.out.println("poblacion: " + poblacion.get(i).getFenotipo() +"rango: " + rangos.get(i));
