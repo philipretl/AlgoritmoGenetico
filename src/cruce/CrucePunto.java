@@ -7,6 +7,7 @@ package cruce;
 
 import java.util.ArrayList;
 import poblacion.Cromosoma;
+import poblacion.Padres;
 
 /**
  *
@@ -20,12 +21,13 @@ public class CrucePunto {
     public CrucePunto() {
     }
     
-    public void cruzar(Cromosoma padre, Cromosoma madre){
+    public ArrayList<Cromosoma> cruzar(Cromosoma padre, Cromosoma madre){
         
         ArrayList<Integer> cabezaP = new ArrayList<>();
-        ArrayList<Integer> colaP = new ArrayList<>();;
-        ArrayList<Integer> cabezaM = new ArrayList<>();;
-        ArrayList<Integer> colaM = new ArrayList<>();;
+        ArrayList<Integer> colaP = new ArrayList<>();
+        ArrayList<Integer> cabezaM = new ArrayList<>();
+        ArrayList<Integer> colaM = new ArrayList<>();
+        ArrayList<Cromosoma> hijos = new ArrayList<>();
         Cromosoma hijo1;
         Cromosoma hijo2;
         
@@ -57,10 +59,29 @@ public class CrucePunto {
         hijo1 = new Cromosoma(genotipo1,padre.getInfo(),padre.getEntero(),padre.getDecimal());
         hijo2 = new Cromosoma(genotipo2,padre.getInfo(),padre.getEntero(),padre.getDecimal());
         
+        hijos.add(hijo1);
+        hijos.add(hijo2);
+        
+        return hijos;
        
     }
     
-    public void crearPuntoCorte(){
+    public void crearPuntoCorte(Cromosoma cromosoma){
+        int size = cromosoma.getGenotipo().size();
+        int corte = (int) (Math.random() * size)+2;
+        puntoCorte=corte;
         
+    }
+    
+    public ArrayList<Cromosoma> configurarCruces(ArrayList<Padres> parejas){
+        ArrayList<Cromosoma> hijos =new ArrayList<>();
+        crearPuntoCorte(parejas.get(0).getPadre());
+        for (int i = 0; i < parejas.size(); i++) {
+            ArrayList<Cromosoma> cruces = cruzar(parejas.get(i).getPadre(),parejas.get(i).getMadre());
+            hijos.add(cruces.get(0));
+            hijos.add(cruces.get(1));
+        }
+        
+        return hijos;
     }
 }
