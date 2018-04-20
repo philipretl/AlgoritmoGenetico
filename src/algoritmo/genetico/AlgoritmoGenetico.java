@@ -26,7 +26,7 @@ public class AlgoritmoGenetico {
     public static void main(String[] args) {
         // TODO code application logic here
         Funcion ensayo= new Funcion1();
-        System.out.println("valor: " + ensayo.calcularResultado(31.5005));
+        //System.out.println("valor: " + ensayo.calcularResultado(31.5005));
 
        
         //Prueba de sorteo, se crea un array de cromosomas :"poblacion"

@@ -9,14 +9,14 @@ package funciones;
  *
  * @author philipretl
  */
-public abstract class  Funcion {
+public class  Funcion {
     protected double fenotipo;
     protected double resultado;
 
     public Funcion() {
     }
     
-    //abstract public double calcularResultado(double fenotipo);
+    //abstract public double calcularResultado();
     
     public double getFenotipo() {
         return fenotipo;

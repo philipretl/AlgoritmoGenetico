@@ -34,7 +34,7 @@ public class Ruleta extends OperadorSeleccion{
         for (int i = 0; i <poblacion.size(); i++) {
             
             if(i==0){
-                rangos.add(func.calcularResultado(poblacion.get(i).getFenotipo())/sumatoria);
+                rangos.add(func. (poblacion.get(i).getFenotipo())/sumatoria);
                 System.out.println("rangos:" + rangos.get(i));
             }else{
                 primero=func.calcularResultado(poblacion.get(i).getFenotipo())/sumatoria;//soluciona el problema de bucle infinito

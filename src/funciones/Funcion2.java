@@ -11,10 +11,12 @@ package funciones;
  */
 public class Funcion2 extends Funcion {
 
-    //@Override
-    public double calcularResultado(double fenotipo1, double fenotipo2) {
-        
-        return 0.0;
+
+    public double calcularResultado() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
+  
     
 }
