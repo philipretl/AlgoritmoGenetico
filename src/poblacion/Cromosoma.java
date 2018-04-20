@@ -28,6 +28,10 @@ public class Cromosoma {
         this.decimalValue=0;
     }
 
+    public Cromosoma() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public ArrayList<Integer> getGenotipo() {
         return genotipo;
     }
@@ -43,6 +47,32 @@ public class Cromosoma {
     public void setFenotipo(Double fenotipo) {
         this.fenotipo = fenotipo;
     }
+
+    public int getInfo() {
+        return info;
+    }
+
+    public void setInfo(int info) {
+        this.info = info;
+    }
+
+    public int getEntero() {
+        return entero;
+    }
+
+    public void setEntero(int entero) {
+        this.entero = entero;
+    }
+
+    public int getDecimal() {
+        return decimal;
+    }
+
+    public void setDecimal(int decimal) {
+        this.decimal = decimal;
+    }
+    
+    
 
 
     

@@ -37,26 +37,50 @@ public class Ruleta extends OperadorSeleccion{
         }    
     }
 
+
+        
     @Override
-    public void seleccionarPadre() {
+    public ArrayList<Padres> GenerarPadres(int numPadres) {
+        
+        int cont=0;
+       
+        do{
+            //variable entera para seleccionar aleatoreamente un cromosma de la poblacion
+            Padres tmp = new Padres(cont);
+            tmp.setPadre(buscar());
+           
+            boolean flag=false;// bandera para encontrar la madre
+            do{
+                if(buscar()!=tmp.getPadre()){
+                    tmp.setMadre(buscar());
+                    flag=true;
+                }
+            }while(flag!=true);
+
+            padres.add(tmp);// luego de encontrar el padre y la madre se agregar a la lista
+        
+            cont++;
+            
+        }while(cont < numPadres);
+     
+
+       return padres;
+    }
+    
+    public Cromosoma buscar(){
+        Cromosoma cromo = null;
         double n;
         n= (Math.random() * 100) / 100 ;
-        System.out.println("n: " + n );
         
-        for (int i = 0; i < 10; i++) {
-            
+        for (int i = 0; i < rangos.size(); i++) {
+                if(n<=rangos.get(i)){
+                    //cromo=new Cromosoma(poblacion.get(i).getGenotipo(),poblacion.get(i).getInfo(),poblacion.get(i).getEntero(),poblacion.get(i).getDecimal());;
+                    cromo=poblacion.get(i);
+                }
+                    
         }
+                    
+        return cromo;
     }
-
-    @Override
-    public void seleccionarMadre() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Padres GenerarPadres() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-             
 
 }

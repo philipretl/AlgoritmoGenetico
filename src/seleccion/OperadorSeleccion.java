@@ -20,7 +20,7 @@ public abstract class OperadorSeleccion {
     ArrayList<Padres> padres;
     Funcion func;
 
-    public OperadorSeleccion(ArrayList<Cromosoma> poblacion, Funcion funcion) {
+    public OperadorSeleccion(ArrayList<Cromosoma> poblacion, Funcion funcion){
         this.poblacion = poblacion;
         this.func=funcion;
         
@@ -42,9 +42,5 @@ public abstract class OperadorSeleccion {
         this.func = func;
     }
     
-    public abstract void seleccionarPadre();
-    
-    public abstract void seleccionarMadre();
-    
-     public abstract Padres GenerarPadres();
+       public abstract ArrayList<Padres> GenerarPadres(int numPadres);
 }

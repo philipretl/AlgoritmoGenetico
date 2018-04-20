@@ -3,7 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/mauri/Documents/Git/InteligenciaArtificial/src/algoritmo/genetico/AlgoritmoGenetico.java</file>
+            <file>file:/home/philipretl/NetBeansProjects/Algoritmo%20genetico/src/algoritmo/genetico/AlgoritmoGenetico.java</file>
+            <file>file:/home/philipretl/NetBeansProjects/Algoritmo%20genetico/src/seleccion/Torneo.java</file>
+            <file>file:/home/philipretl/NetBeansProjects/Algoritmo%20genetico/src/poblacion/Padres.java</file>
+            <file>file:/home/philipretl/NetBeansProjects/Algoritmo%20genetico/src/seleccion/Ruleta.java</file>
+            <file>file:/home/philipretl/NetBeansProjects/Algoritmo%20genetico/src/seleccion/OperadorSeleccion.java</file>
+            <file>file:/home/philipretl/NetBeansProjects/Algoritmo%20genetico/src/seleccion/Sorteo.java</file>
         </group>
     </open-files>
 </project-private>

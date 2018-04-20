@@ -40,7 +40,10 @@ public class AlgoritmoGenetico {
         poblacion.add(c2);
         poblacion.add(c3);
         
-        Sorteo sort = new Sorteo(poblacion,null);
+        
+        
+        
+       /* Sorteo sort = new Sorteo(poblacion,null);
         
         sort.seleccionarPadre();
         sort.seleccionarMadre();
@@ -50,7 +53,8 @@ public class AlgoritmoGenetico {
         
         System.out.println("Padre: "+padre.fenotipo);
         System.out.println("Madre: "+madre.fenotipo);
- 
+        
+        */
         
     }
     

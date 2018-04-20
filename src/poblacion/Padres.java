@@ -12,5 +12,28 @@ package poblacion;
 public class Padres {
     Cromosoma padre;
     Cromosoma madre;
+    int id;
     //mela pela
+
+    public Padres(int id) {
+        this.id=id;
+    }
+
+    public Cromosoma getPadre() {
+        return padre;
+    }
+
+    public void setPadre(Cromosoma padre) {
+        this.padre = padre;
+    }
+
+    public Cromosoma getMadre() {
+        return madre;
+    }
+
+    public void setMadre(Cromosoma madre) {
+        this.madre = madre;
+    }
+    
+    
 }

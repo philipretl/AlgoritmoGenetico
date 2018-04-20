@@ -21,43 +21,39 @@ public class Sorteo extends OperadorSeleccion{
         super(poblacion, funcion);
     }
     
-  
-    
-    @Override
-    public void seleccionarPadre() {
-        System.out.println(" Metodo : Seleccion Padre");
-        Cromosoma tmp;
-        
-        do{
-            //variable entera para seleccionar aleatoreamente un cromosma de la poblacion
-            int n;
-            n=(int) (Math.random() * poblacion.size()) ;
-            System.out.print(" n: "+n);
-            tmp=poblacion.get(n);
-        }while(tmp.equals(madre));
-        System.out.println("");
-        setPadre(tmp);
-    }
+ 
 
     @Override
-    public void seleccionarMadre() {
-        System.out.println(" Metodo : Seleccion Madre");
-        Cromosoma tmp;
-        
+    public ArrayList<Padres> GenerarPadres(int numPadres) {
+        int cont=0;
+        int n;
+ 
         do{
             //variable entera para seleccionar aleatoreamente un cromosma de la poblacion
-            int n;
             n=(int) (Math.random() * poblacion.size()) ;
-            System.out.print(" n: "+n);
-            tmp=poblacion.get(n);
-        }while(tmp.equals(padre));
-        System.out.println("");
-        setMadre(tmp);
-    }
+            Padres tmp = new Padres(cont);
+           
+            tmp.setPadre(poblacion.get(n));
+            
+            boolean flag=false;// bandera para encontrar la madre
+            do{
+               
+               n=(int) (Math.random() * poblacion.size());
+               if(poblacion.get(n)!=tmp.getPadre()){
+                   tmp.setMadre(poblacion.get(n));
+                   flag=true;
+               }
+            }while(flag!=true);
+            
+            padres.add(tmp);// luego de encontrar el padre y la madre se agregar a la lista
+        
+            cont++;
+            
+        }while(cont < numPadres);
 
-    @Override
-    public Padres GenerarPadres() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        return padres;
+        
     }
     
 }
