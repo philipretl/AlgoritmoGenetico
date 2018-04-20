@@ -22,6 +22,8 @@ public class Ruleta extends OperadorSeleccion{
     public Ruleta(ArrayList<Cromosoma> poblacion, Funcion funcion) {
         super(poblacion, funcion);
         rangos = new ArrayList();
+        padres=new ArrayList();
+        calcularRangos();
     }
     
     
@@ -37,10 +39,9 @@ public class Ruleta extends OperadorSeleccion{
         }    
     }
 
-
-        
     @Override
     public ArrayList<Padres> GenerarPadres(int numPadres) {
+    
         
         int cont=0;
        
@@ -74,6 +75,8 @@ public class Ruleta extends OperadorSeleccion{
         
         for (int i = 0; i < rangos.size(); i++) {
                 if(n<=rangos.get(i)){
+                    System.out.println("poblacion: " + poblacion.get(i).getFenotipo() +"rango: " + rangos.get(i));
+                    
                     //cromo=new Cromosoma(poblacion.get(i).getGenotipo(),poblacion.get(i).getInfo(),poblacion.get(i).getEntero(),poblacion.get(i).getDecimal());;
                     cromo=poblacion.get(i);
                 }
@@ -82,5 +85,8 @@ public class Ruleta extends OperadorSeleccion{
                     
         return cromo;
     }
+    
+
+   
 
 }

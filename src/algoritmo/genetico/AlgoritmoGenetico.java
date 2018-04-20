@@ -9,6 +9,9 @@ import poblacion.Cromosoma;
 import funciones.Funcion1;
 import funciones.Funcion;
 import java.util.ArrayList;
+import poblacion.Padres;
+import seleccion.OperadorSeleccion;
+import seleccion.Ruleta;
 import seleccion.Sorteo;
 
 /**
@@ -40,10 +43,33 @@ public class AlgoritmoGenetico {
         poblacion.add(c2);
         poblacion.add(c3);
         
+        /*
+            pruebas 
+        */
+        //OperadorSeleccion operador;
+        
+        Sorteo operador = new Sorteo(poblacion,null);
         
         
+      
+        System.out.println("Poblacion: ");
+        for (int j = 0; j < poblacion.size(); j++) {
+            System.out.println("Cromosoma: " + poblacion.get(j).getFenotipo());
+        }
+         
+        System.out.println("Prueba sorteo");
+         ArrayList <Padres> pad = operador.GenerarPadres(5);
+        for (int i = 0; i <pad.size() ; i++) {
+            System.out.println("padre: " + pad.get(i).getPadre().getFenotipo() + " madre: " + pad.get(i).getMadre().getFenotipo());
+        }
         
-       /* Sorteo sort = new Sorteo(poblacion,null);
+         System.out.println("Prueba Ruleta");
+         Ruleta rulet = new Ruleta(poblacion,null);
+         ArrayList <Padres> padRuleta= rulet.GenerarPadres(5);
+        for (int i = 0; i <padRuleta.size() ; i++) {
+            System.out.println("padre: " + padRuleta.get(i).getPadre().getFenotipo() + " madre: " + padRuleta.get(i).getMadre().getFenotipo());
+        }
+       /* Sorteo sort = new Sorteo(poblacion,null);// codigo manzano
         
         sort.seleccionarPadre();
         sort.seleccionarMadre();

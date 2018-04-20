@@ -19,6 +19,7 @@ public class Sorteo extends OperadorSeleccion{
 
     public Sorteo(ArrayList<Cromosoma> poblacion, Funcion funcion) {
         super(poblacion, funcion);
+        padres=new ArrayList();
     }
     
  

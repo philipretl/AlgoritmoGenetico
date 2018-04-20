@@ -42,5 +42,5 @@ public abstract class OperadorSeleccion {
         this.func = func;
     }
     
-       public abstract ArrayList<Padres> GenerarPadres(int numPadres);
+    public abstract ArrayList<Padres> GenerarPadres(int numPadres);
 }
