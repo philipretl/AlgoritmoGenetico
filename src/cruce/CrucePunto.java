@@ -69,7 +69,7 @@ public class CrucePunto {
     
     public void crearPuntoCorte(Cromosoma cromosoma){
         int size = cromosoma.getGenotipo().size();
-        int corte = (int) (Math.random() * size)+2;
+        int corte = (int) (Math.random() * (size-1))+1;
         puntoCorte=corte;
         
     }
