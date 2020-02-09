@@ -1,5 +1,5 @@
 # InteligenciaArtificial
 Algoritmo genetico
 
-** hola 
+# hola 
 
